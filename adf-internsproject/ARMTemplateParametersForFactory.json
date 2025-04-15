@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-internsproject"
+		},
+		"ls_storage_account_connectionString": {
+			"value": ""
+		},
+		"ls_db_properties_typeProperties_server": {
+			"value": "internsproject-sql-server.database.windows.net"
+		},
+		"ls_db_properties_typeProperties_database": {
+			"value": "database-internsproject"
+		},
+		"ls_db_properties_typeProperties_userName": {
+			"value": "internsproject"
+		},
+		"ls_kv_properties_typeProperties_baseUrl": {
+			"value": "https://kv-data-platform-interns.vault.azure.net/"
+		},
+		"mgprivateendpoint_properties_privateLinkResourceId": {
+			"value": "/subscriptions/b1939b25-807e-43a4-8f19-c1055b6d8fc4/resourceGroups/intern-final-project-adf/providers/Microsoft.Sql/servers/internsproject-sql-server"
+		},
+		"mgprivateendpoint_properties_groupId": {
+			"value": "sqlServer"
+		},
+		"mgprivateendpoint_properties_fqdns": {
+			"value": [
+				"internsproject-sql-server.database.windows.net"
+			]
+		},
+		"blobprivateendpoint_properties_privateLinkResourceId": {
+			"value": "/subscriptions/b1939b25-807e-43a4-8f19-c1055b6d8fc4/resourceGroups/intern-final-project-adf/providers/Microsoft.Storage/storageAccounts/storageaccountinternsprj"
+		},
+		"blobprivateendpoint_properties_groupId": {
+			"value": "blob"
+		}
+	}
+}

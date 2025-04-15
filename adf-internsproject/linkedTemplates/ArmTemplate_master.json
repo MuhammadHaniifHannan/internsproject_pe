@@ -1,0 +1,114 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-internsproject"
+		},
+		"ls_storage_account_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_storage_account'"
+		},
+		"ls_db_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "internsproject-sql-server.database.windows.net"
+		},
+		"ls_db_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "database-internsproject"
+		},
+		"ls_db_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "internsproject"
+		},
+		"ls_kv_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://kv-data-platform-interns.vault.azure.net/"
+		},
+		"mgprivateendpoint_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/b1939b25-807e-43a4-8f19-c1055b6d8fc4/resourceGroups/intern-final-project-adf/providers/Microsoft.Sql/servers/internsproject-sql-server"
+		},
+		"mgprivateendpoint_properties_groupId": {
+			"type": "string",
+			"defaultValue": "sqlServer"
+		},
+		"mgprivateendpoint_properties_fqdns": {
+			"type": "array",
+			"defaultValue": [
+				"internsproject-sql-server.database.windows.net"
+			]
+		},
+		"blobprivateendpoint_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/b1939b25-807e-43a4-8f19-c1055b6d8fc4/resourceGroups/intern-final-project-adf/providers/Microsoft.Storage/storageAccounts/storageaccountinternsprj"
+		},
+		"blobprivateendpoint_properties_groupId": {
+			"type": "string",
+			"defaultValue": "blob"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf-internsproject_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ls_storage_account_connectionString": {
+						"value": "[parameters('ls_storage_account_connectionString')]"
+					},
+					"ls_kv_properties_typeProperties_baseUrl": {
+						"value": "[parameters('ls_kv_properties_typeProperties_baseUrl')]"
+					},
+					"mgprivateendpoint_properties_privateLinkResourceId": {
+						"value": "[parameters('mgprivateendpoint_properties_privateLinkResourceId')]"
+					},
+					"mgprivateendpoint_properties_groupId": {
+						"value": "[parameters('mgprivateendpoint_properties_groupId')]"
+					},
+					"mgprivateendpoint_properties_fqdns": {
+						"value": "[parameters('mgprivateendpoint_properties_fqdns')]"
+					},
+					"blobprivateendpoint_properties_privateLinkResourceId": {
+						"value": "[parameters('blobprivateendpoint_properties_privateLinkResourceId')]"
+					},
+					"blobprivateendpoint_properties_groupId": {
+						"value": "[parameters('blobprivateendpoint_properties_groupId')]"
+					},
+					"ls_db_properties_typeProperties_server": {
+						"value": "[parameters('ls_db_properties_typeProperties_server')]"
+					},
+					"ls_db_properties_typeProperties_database": {
+						"value": "[parameters('ls_db_properties_typeProperties_database')]"
+					},
+					"ls_db_properties_typeProperties_userName": {
+						"value": "[parameters('ls_db_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
