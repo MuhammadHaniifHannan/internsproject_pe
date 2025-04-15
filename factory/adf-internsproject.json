@@ -1,0 +1,9 @@
+{
+	"name": "adf-internsproject",
+	"location": "uksouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "8ceac0d7-0218-46b2-94f6-4a8cd2e2c8b8",
+		"tenantId": "2800c0a0-70e9-49be-8733-faeaa6aced99"
+	}
+}

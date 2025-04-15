@@ -1,0 +1,29 @@
+{
+	"name": "ls_db",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "internsproject-sql-server.database.windows.net",
+			"database": "database-internsproject",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "internsproject",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "ls_kv",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "sqlPass",
+				"secretVersion": "6ae213ff24864aa8aebaac8830cf9aa6"
+			}
+		},
+		"connectVia": {
+			"referenceName": "integrationruntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

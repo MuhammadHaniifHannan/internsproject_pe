@@ -1,0 +1,10 @@
+{
+	"name": "mgprivateendpoint",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/b1939b25-807e-43a4-8f19-c1055b6d8fc4/resourceGroups/intern-final-project-adf/providers/Microsoft.Sql/servers/internsproject-sql-server",
+		"groupId": "sqlServer",
+		"fqdns": [
+			"internsproject-sql-server.database.windows.net"
+		]
+	}
+}
