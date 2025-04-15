@@ -1,0 +1,7 @@
+{
+	"name": "blobprivateendpoint",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/b1939b25-807e-43a4-8f19-c1055b6d8fc4/resourceGroups/intern-final-project-adf/providers/Microsoft.Storage/storageAccounts/storageaccountinternsprj",
+		"groupId": "blob"
+	}
+}
