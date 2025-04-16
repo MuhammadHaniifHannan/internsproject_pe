@@ -1,7 +1,0 @@
-{
-	"name": "sh-integratedRuntime",
-	"properties": {
-		"type": "SelfHosted",
-		"description": "This is a self-hosted integrated runtime"
-	}
-}
