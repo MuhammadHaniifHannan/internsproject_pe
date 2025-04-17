@@ -1,5 +1,5 @@
 {
-	"name": "pl_blob_to_blob",
+	"name": "pl_blob_to_db_pipeline",
 	"properties": {
 		"activities": [
 			{
